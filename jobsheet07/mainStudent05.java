@@ -3,8 +3,9 @@ package jobsheet07;
 import java.util.Scanner;
 
 public class mainStudent05 {
-        public static void main(String[] args) {
-            Scanner s = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
         Scanner s1 = new Scanner(System.in);
 
         searchStudent05 data = new searchStudent05();
@@ -44,10 +45,21 @@ public class mainStudent05 {
 
         System.out.print("Search student by NIM: ");
         System.out.println("Using binary Search");
-        int position1 = data.FindBinarySearch(search, 0, amountStudent-1);
-
+        int position1 = data.FindBinarySearch(search, 0, amountStudent - 1);
         data.showPosition(search, position1);
-
         data.showData(search, position1);
+
+        data.sortData();
+        System.out.println("\nBinary Search (Ascending) Result:");
+        int pos2 = data.FindBinarySearch(search, 0, data.ListStd05.length - 1);
+        data.showPosition(search, pos2);
+        data.showData(search, pos2);
+
+        
+        data.sortDataDesc();
+        System.out.println("\nBinary Search (Descending) Result:");
+        int pos3 = data.findBinarySearchDesc(search, 0, data.ListStd05.length - 1);
+        data.showPosition(search, pos3);
+        data.showData(search, pos3);
     }
 }

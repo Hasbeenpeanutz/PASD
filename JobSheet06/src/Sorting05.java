@@ -1,10 +1,12 @@
-class Sorting {
+
+class Sorting05 {
+
     int data[];
     int size;
 
-    Sorting(int dt[], int n) {
-        data = dt;
-        size = n;
+    Sorting05(int dt[]) {
+        this.data = dt;
+        this.size = dt.length;
     }
 
     void bubbleSort() {

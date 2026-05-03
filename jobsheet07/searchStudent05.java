@@ -66,4 +66,46 @@ public class searchStudent05 {
         }
         return -1;
     }
+
+    int findBinarySearchDesc(int search, int left, int right) {
+    int mid;
+
+    if (right >= left) {
+        mid = (left + right) / 2;
+
+        if (ListStd05[mid].nim == search) {
+            return mid;
+        } else if (ListStd05[mid].nim < search) { 
+            return findBinarySearchDesc(search, left, mid - 1);
+        } else {
+            return findBinarySearchDesc(search, mid + 1, right);
+        }
+    }
+
+    return -1;
+}
+
+void sortDataDesc() {
+    for (int i = 0; i < ListStd05.length - 1; i++) {
+        for (int j = 0; j < ListStd05.length - i - 1; j++) {
+            if (ListStd05[j].nim < ListStd05[j + 1].nim) {
+                students05 temp = ListStd05[j];
+                ListStd05[j] = ListStd05[j + 1];
+                ListStd05[j + 1] = temp;
+            }
+        }
+    }
+}
+
+    void sortData() {
+    for (int i = 0; i < ListStd05.length - 1; i++) {
+        for (int j = 0; j < ListStd05.length - i - 1; j++) {
+            if (ListStd05[j].nim > ListStd05[j + 1].nim) {
+                students05 temp = ListStd05[j];
+                ListStd05[j] = ListStd05[j + 1];
+                ListStd05[j + 1] = temp;
+            }
+        }
+    }
+}
 }
