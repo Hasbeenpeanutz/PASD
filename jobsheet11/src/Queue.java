@@ -1,4 +1,6 @@
+
 public class Queue {
+
     int[] data;
     int front, rear, size, max;
 
@@ -72,7 +74,8 @@ public class Queue {
             size++;
             System.out.printf("%d is successfully added at index %d\n", dt, rear);
         } else {
-            System.out.println("Queue is full!!!");
+            System.out.println("Queue overflow!");
+            System.exit(0);
         }
     }
 
