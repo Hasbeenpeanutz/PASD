@@ -12,6 +12,8 @@ public class StudentDemo05 {
             System.out.println("2. Grade Assignment");
             System.out.println("3. View Top Assignment");
             System.out.println("4. View All Assignments");
+            System.out.println("5. View First Assignment");
+            System.out.println("6. Count Assignments");
             System.out.print("Choose a menu: ");
             choice = scan.nextInt();
             scan.nextLine(); 
@@ -52,10 +54,19 @@ public class StudentDemo05 {
                     System.out.println("NIM\tName\tClass Name");
                     stack.print();
                     break;
+                case 5:
+                    Student05 first = stack.getFirst();
+                    if (first != null) {
+                        System.out.println("The first assignment comes from " + first.name);
+                    }
+                    break;
+                case 6:
+                    System.out.println("Total assignments in stack: " + stack.count());
+                    break;
                 default:
                     System.out.println("Invalid choice.");
             }
-        } while (choice >= 1 && choice <= 4);
+        } while (choice >= 1 && choice <= 6);
         
         scan.close();
     }

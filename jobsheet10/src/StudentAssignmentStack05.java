@@ -60,6 +60,19 @@ public class StudentAssignmentStack05 {
         System.out.println("");
     }
 
+Student05 getFirst() {
+    if (!isEmpty()) {
+        return stack[0];
+    } else {
+        System.out.println("There is no data in Stack!!");
+        return null;
+    }
+}
+
+int count() {
+    return top + 1;
+}
+
     String convertToBinary(int grade) {
         ConversionStack05 stack = new ConversionStack05();
         while (grade > 0) {
