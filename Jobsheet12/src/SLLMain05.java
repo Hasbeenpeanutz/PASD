@@ -1,34 +1,28 @@
+import java.util.Scanner;
+
 public class SLLMain05 {
     public static void main(String[] args) {
 
+        Scanner sc = new Scanner(System.in);
+
         SingleLinkedList05 sll = new SingleLinkedList05();
 
-        Student05 std1 = new Student05("001", "Student 1", "TI-1I", 3.89);
-        Student05 std2 = new Student05("002", "Student 2", "TI-1I", 3.45);
-        Student05 std3 = new Student05("003", "Student 3", "TI-1I", 3.20);
-        Student05 std4 = new Student05("004", "Student 4", "TI-1I", 3.00);
+        System.out.print("Input NIM : ");
+        String nim = sc.nextLine();
 
-        sll.print();
-        sll.addFirst(std4);
-        sll.print();
-        sll.addLast(std1);
-        sll.print();
-        sll.insertAfter(std3, "Student 4");
-        sll.insertAt(2, std2);
-        sll.print();
+        System.out.print("Input Name : ");
+        String name = sc.nextLine();
 
-        System.out.println("Data at index 1 is:");
-        Student05 data = sll.getData(1);
-        data.print();
+        System.out.print("Input Class : ");
+        String cls = sc.nextLine();
 
-        int idx = sll.indexOf("Student 1");
-        System.out.println("Student 1 is located at index: " + idx);
+        System.out.print("Input GPA : ");
+        double gpa = sc.nextDouble();
 
-        sll.removeFirst();
-        sll.removeLast();
-        sll.print();
+        Student05 std = new Student05(nim, name, cls, gpa);
 
-        sll.removeAt(0);
+        sll.addFirst(std);
+
         sll.print();
     }
 }
