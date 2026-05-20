@@ -59,17 +59,24 @@ public class orderDLL {
             System.out.println("No orders to display.");
             return;
         }else{
+            int totalRevenue = 0;
             orderNode current = head;
             
             System.out.println("===========================================");
             System.out.println(" Current Orders Queue (Sort by Order Name) ");
             System.out.println("===========================================\n");
             System.out.println("Order Number \t  Order Name \t\t Price");
-        
+
+            
             while (current != null) {
                 System.out.println(current.order.orderCode + "\t\t  " + current.order.orderName + "\t\t " + current.order.price);
+                totalRevenue = totalRevenue + current.order.price;
                 current = current.next;
             }
+
+            System.out.println("--------------------------------------------- +");
+            System.out.println("Total Revenue: \t\t\t\t " + totalRevenue);
+
 
         }
 
