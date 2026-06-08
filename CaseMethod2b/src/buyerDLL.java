@@ -50,6 +50,72 @@ public class buyerDLL {
 
     }
 
+    buyerNode removeFirst() {
+        if (isEmpty()) {
+            System.out.println("The queue is empty.");
+            return null;
+        }
+
+        buyerNode temp = head;
+
+        if (head == tail) {
+            head = tail = null;
+        } else {
+            head = head.next;
+            head.prev = null;
+        }
+
+        size--;
+        return temp;
+    }
+
+    //Additional method
+    // int totalBuyers() {
+    //     return size;
+    // }
+//     void removeBuyer(int queueNumber) {
+
+//         if (isEmpty()) {
+//             System.out.println("The queue is empty.");
+//             return;
+//         }
+
+//         buyerNode current = head;
+
+//         while (current != null) {
+//             if (current.queueNumber == queueNumber) {
+
+//                 if (current == head) {
+//                     removeFirst();
+
+//                 } else if (current == tail) {
+//                     tail = tail.prev;
+//                     if (tail != null) {
+//                         tail.next = null;
+
+//                     } else {
+//                         head = null;
+
+//                     }
+//                     size--;
+
+//                 } else {
+//                     current.prev.next = current.next;
+//                     current.next.prev = current.prev;
+
+//                     size--;
+
+//                 }
+//                 System.out.println("Buyer with queue number " + queueNumber + " has been removed from the queue.");
+
+//                 return;
+//             }
+//             current = current.next;
+//         }
+
+//         System.out.println("Buyer with queue number " + queueNumber + " not found in the queue.");
+//     }
+
     buyerNode proccessBuyer(int queueNumber) {
         if (isEmpty()) {
             System.out.println("The queue is empty.");
@@ -62,15 +128,19 @@ public class buyerDLL {
 
             if (current.queueNumber == queueNumber) {
 
+                // jika hanya ada 1 node
                 if (head == tail) {
                     head = tail = null;
-                } else if (current == head) {
+                } // jika node pertama
+                else if (current == head) {
                     head = head.next;
                     head.prev = null;
-                } else if (current == tail) {
+                } // jika node terakhir
+                else if (current == tail) {
                     tail = tail.prev;
                     tail.next = null;
-                } else {
+                } // jika node di tengah
+                else {
                     current.prev.next = current.next;
                     current.next.prev = current.prev;
                 }
@@ -85,5 +155,4 @@ public class buyerDLL {
         System.out.println("Queue number not found.");
         return null;
     }
-
 }

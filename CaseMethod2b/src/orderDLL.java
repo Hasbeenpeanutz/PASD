@@ -1,4 +1,6 @@
+
 public class orderDLL {
+
     orderNode head, tail;
     int size;
 
@@ -27,7 +29,7 @@ public class orderDLL {
         size++;
     }
 
-    void sortOrder(){
+    void sortOrder() {
         if (isEmpty()) {
             System.out.println("No orders to sort.");
             return;
@@ -40,7 +42,7 @@ public class orderDLL {
 
             while (current.next != null) {
                 if (current.order.orderName.compareToIgnoreCase(current.next.order.orderName) > 0) {
-                    
+                    // Swap orders
                     order tempOrder = current.order;
                     current.order = current.next.order;
                     current.next.order = tempOrder;
@@ -58,16 +60,15 @@ public class orderDLL {
         if (isEmpty()) {
             System.out.println("No orders to display.");
             return;
-        }else{
+        } else {
             int totalRevenue = 0;
             orderNode current = head;
-            
+
             System.out.println("===========================================");
             System.out.println(" Current Orders Queue (Sort by Order Name) ");
             System.out.println("===========================================\n");
             System.out.println("Order Number \t  Order Name \t\t Price");
 
-            
             while (current != null) {
                 System.out.println(current.order.orderCode + "\t\t  " + current.order.orderName + "\t\t " + current.order.price);
                 totalRevenue = totalRevenue + current.order.price;
@@ -77,11 +78,14 @@ public class orderDLL {
             System.out.println("--------------------------------------------- +");
             System.out.println("Total Revenue: \t\t\t\t " + totalRevenue);
 
-
         }
 
-
-       
     }
+
+    //Additional method
+
+    // int totalOrder() {
+    //     return size;
+    // }
 
 }
